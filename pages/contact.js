@@ -1,6 +1,10 @@
+import Layout from "../components/Layout";
+
 const Contact = () => {
   return (
-    <div>Blog Page</div>
+    <Layout title="Contact">
+      <p className='text-4xl'>Contact</p>
+    </Layout>
   )
 }
 
