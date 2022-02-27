@@ -1,11 +1,22 @@
 import Layout from "../components/Layout";
+import Post from "../components/Post";
+import { getAllPostsData } from "../lib/posts";
 
-const Blogs = () => {
+const Blogs = ({ posts }) => {
   return (
     <Layout title="Blog">
-      <p className='text-4xl'>Blogs</p>
+      <ul className="m-10">
+        {posts && posts.map((post) => <Post key={post.id} post={post} />)}
+      </ul>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const posts = await getAllPostsData();
+  return {
+    props: { posts },
+  }
 }
 
 export default Blogs;
